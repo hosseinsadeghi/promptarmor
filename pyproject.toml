@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promptarmor"
+version = "0.1.0"
+description = "Self-hosted, LLM-prompted prompt-injection content guard (reimplementation of arXiv:2507.15219)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Hossein Sadeghi" }]
+keywords = ["prompt-injection", "llm-security", "guardrail", "vllm", "qwen"]
+dependencies = [
+    "openai>=1.0",
+]
+
+[project.optional-dependencies]
+data = ["datasets>=2.0"]
+model = ["huggingface_hub>=0.23"]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/hse19/promptarmor"
+
+[tool.setuptools.packages.find]
+include = ["promptarmor*"]
+
+[tool.pytest.ini_options]
+testpaths = ["promptarmor/tests"]
